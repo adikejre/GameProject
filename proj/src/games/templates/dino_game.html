@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Dino Game</title>
+        <style>
+        body {background-color: grey;}
+            canvas{
+                display: block;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+
+    <!-- {% load static %}
+    <img class="trex" src="{% static 'img/trex.png' %}"   id="t-rex" width="55" height="70" alt="dino-img"> -->
+    <div class="message">
+        Press Backspace To Restart Game!
+    </div>
+    <div class="score">
+        <span class="score_title"></span>
+        <span class="score_val"></span>
+    </div>
+     <canvas id="game" height="400" width="800"></canvas>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styling_dino.css' %}">
+     <script src="{% static 'js_dino.js' %}">
+      </script>
+      <a href="{% url 'game_list' %}"> <h3>Go back to games</h3> </a>
+</html>

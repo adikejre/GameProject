@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from my_games.views import CustomLoginView,game_pg,RegisteringPg,snakegame,snake_score,list_of_scores,flappybrd,flappy_score,dinogame,dino_score,ponggame,pong_score,tttgame,ttt_score
+from my_games.views import CustomLoginView,game_pg,RegisteringPg,snakegame,snake_score,list_of_scores,flappybrd,flappy_score,dinogame,dino_score,ponggame,pong_score,tttgame,ttt_score,leaderb
 from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +25,9 @@ urlpatterns = [
     #path('login',CustomLoginView.as_view() ),
     path('logout',LogoutView.as_view(next_page='loginpg') ,name='logout'),
     path('allgames/',game_pg ,name='game_list'),#
+
+    path('leaderboard/',leaderb,name="leader_board"),
+
     path('register/',RegisteringPg.as_view(),name='register'),
     path('snake/',snakegame,name='mysnake_game'),
 

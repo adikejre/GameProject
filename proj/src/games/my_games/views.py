@@ -230,15 +230,74 @@ def ttt_score(request,*args,**kwargs):
     return HttpResponse('failed?!?')
 
 
+def leaderb(request):
+    allobs=AllMyScores.objects.all()
+    mxflappy=0
+    flppy_user=""
+    mxsnake=0
+    snake_usr=""
+    mxpong=0
+    pong_usr=""
+    mxttt=0
+    ttt_usr=""
+    mxjmp=0
+    jmp_usr=""
+    for itm in allobs:
+        if (itm.game_title=="flappy"):
+            if(itm.max_score>mxflappy):
+                print(itm.max_score)
+                mxflappy=itm.max_score
+                flppy_user=itm.user;
+
+        if (itm.game_title=="snake"):
+            if(itm.max_score>mxsnake):
+                print(itm.max_score)
+                mxsnake=itm.max_score
+                snake_usr=itm.user;
+
+        if (itm.game_title=="Pong"):
+            if(itm.max_score>mxpong):
+                print(itm.max_score)
+                mxpong=itm.max_score
+                pong_usr=itm.user;
+
+        if (itm.game_title=="TicTacToe"):
+            if(itm.max_score>mxttt):
+                print(itm.max_score)
+                mxttt=itm.max_score
+                ttt_usr=itm.user;
+
+        if (itm.game_title=="Jump!"):
+            if(itm.max_score>mxjmp):
+                print(itm.max_score)
+                mxjmp=itm.max_score
+                jmp_usr=itm.user;
+
+    leaders={
+    "Flappy Bird":[flppy_user,mxflappy],
+    "Snake Game":[snake_usr,mxsnake],
+    "Pong":[pong_usr,mxpong],
+    "TicTacToe":[ttt_usr,mxttt],
+    "Jump!":[jmp_usr,mxjmp],
+
+    }
+    cntxt={
+    "leaderss":leaders
+    }
+    return render(request,'myleaderboard.html',cntxt)
+
+
+
+
 
 
 
 def list_of_scores(request):
     objs=AllMyScores.objects.filter(user=request.user)
-    allobs=AllMyScores.objects.all()
+
+
     cntxt={
     "obs":objs,
-    "all_obj":allobs
 
     }
     return render(request,'all_my_scores.html',cntxt)

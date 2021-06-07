@@ -1,14 +1,70 @@
 <html>
     <head>
         <title>Snake Game</title>
+
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'my_css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'my_main1.css' %}">
+
+
         <style>
         body {background-color: coral;}
             canvas{
                 display: block;
                 margin: 0 auto;
             }
+        .navbar{ background:#31980B ;}
         </style>
     </head>
+
+
+
+    <nav class="navbar navbar-expand-lg fixed-top ">
+       <span class="navbar-brand mb-0 h1">Snakes</span>
+        <!-- <a class="navbar-brand" href="home.html">Home</a> -->
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+       </button>
+
+
+       <div class="collapse navbar-collapse " id="navbarSupportedContent">     <ul class="navbar-nav mr-4">
+    <!-- <li class="nav-item">
+        <a class="nav-link" data-value="about" href="#">About</a>        </li> -->
+    <li class="nav-item">
+       <a class="nav-link " data-value="portfolio"href="{% url 'game_list' %}">Games</a>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link " data-value="portfolio"href="{% url 'list_of_scores' %}">Scores</a>
+     </li> -->
+
+      <!-- <a class="nav-link " data-value="team" href="#">         Contact</a>       </li> -->
+
+    {% if request.user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link " data-value="portfolio"href="{% url 'list_of_scores' %}">Scores</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " data-value="blog" href="{% url 'logout' %}">Logout</a>         </li>
+    <li class="nav-item">
+
+
+    {% else %}
+
+    <li class="nav-item">
+    <a class="nav-link " data-value="contact" href="{% url 'loginpg' %}">Login </a>       </li>
+    <li class="nav-item">
+     <a class="nav-link " data-value="contact" href="{% url 'register' %}">Register </a>       </li>
+     {% endif %}
+
+    </ul>
+    </div></nav>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
     <canvas id="snake" width="608" height="608"></canvas>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -16,5 +72,5 @@
      <script src="{% static 'js_snake.js' %}">
 
       </script>
-      <a href="{% url 'game_list' %}"> <h3>Go back to games</h3> </a>
+      <!-- <a href="{% url 'game_list' %}"> <h2>Go back to games</h2> </a> -->
 </html>

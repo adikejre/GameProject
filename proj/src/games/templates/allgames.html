@@ -71,8 +71,8 @@ To play games please login
 
 
      <div class="collapse navbar-collapse " id="navbarSupportedContent">     <ul class="navbar-nav mr-4">
-  <!-- <li class="nav-item">
-      <a class="nav-link" data-value="about" href="#">About</a>        </li> -->
+  <li class="nav-item">
+      <a class="nav-link" data-value="about" href="{% url 'leader_board' %}">LeaderBoard</a>        </li>
  <li class="nav-item">
      <a class="nav-link " data-value="portfolio"href="{% url 'game_list' %}">Games</a>
   </li>
@@ -80,7 +80,7 @@ To play games please login
       <a class="nav-link " data-value="portfolio"href="{% url 'list_of_scores' %}">Scores</a>
    </li> -->
 
-    <a class="nav-link " data-value="team" href="#">         Contact</a>       </li>
+    <!-- <a class="nav-link " data-value="team" href="#">         Contact</a>       </li> -->
 
 {% if request.user.is_authenticated %}
 <li class="nav-item">
@@ -104,7 +104,7 @@ To play games please login
  <br>
  <br>
 
- <h2 style="text-align:center"> Hello {{request.user}} </h2><br><br><br>
+ <h2 style="text-align:center"> Hello {{request.user}} </h2><br>
 
     <h3>List of games to play</h3>
     <br>
@@ -120,21 +120,27 @@ To play games please login
     <!-- Three columns of text -->
     <div class="row">
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/sv" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/sv" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          <image width="100%" height="100%" xlink:href="/static/img/snake_logo.jpeg" preserveAspectRatio="none" />
+        </svg>
 
         <h2>Snakes</h2>
         <p> Play snake. Eat the food, but don't eat yourself!</p>
         <p><a class="btn btn-secondary" href="{% url 'mysnake_game' %}">Play &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          <image width="100%" height="100%" xlink:href="/static/img/bird_logo.jpeg" preserveAspectRatio="none" />
+        </svg>
 
         <h2>Flappy Bird</h2>
         <p>Fly the bird as far as you can without hitting a pipe.</p>
         <p><a class="btn btn-secondary" href="{% url 'flappygame' %}">Play &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          <image width="100%" height="100%" xlink:href="/static/img/dino_logo.jpeg" preserveAspectRatio="none" />
+        </svg>
 
         <h2>Jump!</h2>
         <p>Jump over obstacles!</p>
@@ -148,14 +154,18 @@ To play games please login
 
     <div class="row">
       <div class="col-lg-6">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          <image width="100%" height="100%" xlink:href="/static/img/pong_logo.jpeg" preserveAspectRatio="none" />
+        </svg>
 
         <h2>Pong!</h2>
         <p> Table tennis–themed arcade sports video game.</p>
         <p><a class="btn btn-secondary" href="{% url 'ponggame' %}">Play &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-6">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+          <image width="100%" height="100%" xlink:href="/static/img/tic.png" preserveAspectRatio="none" />
+        </svg>
 
         <h2>Tic-Tac-Toe</h2>
         <p>Player who places three of their marks in a diagonal, horizontal, or vertical row wins!!</p>

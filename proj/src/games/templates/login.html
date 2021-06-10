@@ -1,9 +1,31 @@
-<h1> welcome</h1>
-For login
+
+
+<body>
+
+
+<div class="header-bar">
+<h1> Welcome</h1>
+
+</div>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'login_style.css' %}">
+
+
+
+<div class="mycontainer"
+<div class="card-body">
+
 <form method="POST">
   {% csrf_token %}
   {{form.as_p}}
-  <input type="submit" value="Login">
+  <input type="submit" class="lbutton"  value="Login">
   </form>
 
   New User? <a href="{% url 'register' %}" > Register now</a>
+
+</div>
+
+</div>
+
+</body>

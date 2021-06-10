@@ -57,32 +57,79 @@
 <br>
 
 
-<h2> Welcome to your Scoreboard {{request.user}}  </h2>
+<style>
 
+body {
+  background: #D3CCE3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1e3d59;
+  color: white;
+  font-size: 25px;
+}
+
+</style>
+
+
+
+<body>
+
+<h2> Welcome to your Scoreboard {{request.user|title}}  </h2>
+
+<table style="width:50%" class="center">
+  <tr>
+   <th>Game</th>
+   <th>Score</th>
+ </tr>
 {% for item in obs %}
 <!-- <h3> Game title</h3> -->
-<br>
-<h3>{{item.game_title}}</h3>
 
+<tr>
+<td>
+<h3>{{item.game_title|title}}</h3>
+</td>
 <br>
 
+<td>
 {% if item.game_title == "TicTacToe" %}
 Total Games won: {{item.max_score}}
 {% else %}
 Latest score:
 {{item.latest_score}}
 <br>
-Highest score
+Highest score:
 {{item.max_score}}
 {% endif %}
 <br>
+</td>
+</tr>
 {% endfor %}
 
+</table>
 <br>
 
 
 <br>
 
+</body>
 
 
 
